@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=true
 kile_livePreviewStatusUserSpecified=false
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=tex/homework04.tex
+lastDocument=System_Modeling_Notes.tex
 
 [document-settings,item:System_Modeling_Notes.tex]
 Bookmarks=
@@ -32,28 +32,28 @@ Mode=LaTeX
 Mode Set By User=false
 
 [item:System_Modeling_Notes.tex]
-open=false
-order=0
+open=true
+order=2
 
 [item:systemmodeling.kilepr]
 open=false
 order=-1
 
 [item:tex/homework04.tex]
-open=false
-order=1
+open=true
+order=0
 
 [item:tex/week04.tex]
-open=false
-order=2
+open=true
+order=1
 
 [view-settings,view=0,item:System_Modeling_Notes.tex]
-CursorColumn=30
-CursorLine=18
+CursorColumn=0
+CursorLine=7
 Dynamic Word Wrap=true
 JumpList=
 TextFolding=[]
-ViMarks=.,22,22,[,22,22,],22,22
+ViMarks=.,15,0,[,15,0,],-1,-1
 
 [view-settings,view=0,item:tex/homework04.tex]
 CursorColumn=4
