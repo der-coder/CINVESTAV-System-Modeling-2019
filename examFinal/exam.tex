@@ -1,0 +1,213 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{ifpdf}
+
+\usepackage{multicol}
+\usepackage{tikz}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[center]{caption}
+\usepackage{subcaption}
+
+\usepackage{hyperref}
+
+\graphicspath{{img/}}
+
+\usepackage{float}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{bm}
+
+    \usepackage{listings}
+    \lstset{ 
+    	language=Matlab,                		% choose the language of the code
+    %	basicstyle=10pt,       				% the size of the fonts that are used for the code
+    	numbers=left,                  			% where to put the line-numbers
+    	numberstyle=\footnotesize,      		% the size of the fonts that are used for the line-numbers
+    	stepnumber=1,                   			% the step between two line-numbers. If it's 1 each line will be numbered
+    	numbersep=5pt,                  		% how far the line-numbers are from the code
+    %	backgroundcolor=\color{white},  	% choose the background color. You must add \usepackage{color}
+    	showspaces=false,               		% show spaces adding particular underscores
+    	showstringspaces=false,         		% underline spaces within strings
+    	showtabs=false,                 			% show tabs within strings adding particular underscores
+    %	frame=single,	                			% adds a frame around the code
+    %	tabsize=2,                				% sets default tabsize to 2 spaces
+    %	captionpos=b,                   			% sets the caption-position to bottom
+    	breaklines=true,                			% sets automatic line breaking
+    	breakatwhitespace=false,        		% sets if automatic breaks should only happen at whitespace
+    	escapeinside={\%*}{*)}          		% if you want to add a comment within your code
+    }
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor = black,
+%     filecolor=magenta,      
+    urlcolor=black,
+%     pdftitle={GSP Toolbox Manual},
+%     bookmarks=true
+%     pdfpagemode=FullScreen,
+}
+
+\usepackage[spanish]{babel}
+\decimalpoint
+
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Isaac Ayala Lozano\\194520009 \hspace{2 em}   \textbf{\#2}}
+\lhead{2do examen de modelado}
+\fancyfoot[R]{\thepage}
+
+
+\begin{document}
+\pagenumbering{7}
+% 
+% \section{Introducción}
+% 
+% Se desarrollaron las ecuaciones de movimiento del péndulo esférico mostrado en la figura \ref{fig: pendulum}.
+% El valor del potencial de energía $U$ en el estado actual del sistema es cero.
+% 
+% Las coordenadas generalizadas $\theta$ y $\phi$ describen la posición del sistema. 
+% La conversión a coordenadas cartesianas presentadas en el examen escrito fueron:
+% 
+% \begin{equation}
+%  q = \begin{pmatrix}
+%       z = b \sin \theta \\
+%       y = b \sin \theta \sin \phi\\
+%       x = b \sin \theta \cos \phi
+%      \end{pmatrix}
+% \end{equation}
+% 
+% Se obtuvieron las siguientes ecuaciones de movimiento mediante la formulación Hamiltoniana.
+% 
+% \begin{subequations}
+%  \begin{align}
+%   \dot \theta &= \dfrac{p_\theta}{2 m b^2 \cos^2 \theta}\\
+%   \dot p_\theta &= - \dfrac{p_\theta^2 \sin \theta}{2 m b^2 \cos^3 \theta} +  \dfrac{p_\phi^2 \cos \theta}{2 m b^2 \sin^3 \theta} - m g b \sin \theta \\
+%   \dot \phi &= \dfrac{p_\theta}{2 m b^2 \sin^2 \theta}\\
+%   \dot p_\phi &= 0
+%  \end{align}
+% \end{subequations}
+% 
+% 
+% 
+% \begin{figure}[htb!]
+%  \centering 
+%  \import{./img/}{pendulum.pdf_tex}
+%  \caption{Péndulo esférico.}
+%  \label{fig: pendulum}
+% \end{figure}
+% 
+% 
+% \section{Simulación}
+% 
+% Las condiciones de la simulación se presentan en la tabla \ref{table: initial conditions}.
+% Se emplean unidades del sistema internacional\footnote{Las unidades del momento provienes de las variables involucradas en su cálculo.}. 
+% La constante de gravedad se considera con un valor típico de $9.81 [m/s^2]$.
+% 
+% % b     = 1; % m
+% % m     = 1; % kg
+% % g     = 9.81;
+% % gamma   = 0.01;   % m
+% 
+% % tspan = [0 10];
+% % b     = 1; % m
+% % theta   = pi/10;   % rad/s
+% % phi     = pi/5;   % rad/s
+% % Ptheta  = 1;   % kg m /s
+% % Pphi    = 1;   % kg m/s
+% 
+% \begin{table}[h]
+% \begin{center}
+% \centering
+% \begin{tabular}{ccccc}
+% \hline
+% Tiempo de simulación & 10 s & $\gamma$ & 0.01 m &\\
+% Masa $m$ & 1 kg & Longitud $b$ & 1 m  & \\
+% \hline
+% \multicolumn{5}{c}{Condiciones iniciales}\\
+%  & $\theta$ & $p_\theta$ & $\phi$ & $p_\phi$\\
+% Caso 1 & $\pi/10$ rad & 1 $kg \cdot m^2/s$ & $\pi/5$ rad & 1 $kg \cdot m^2/s$ \\
+% \hline
+% \end{tabular}
+% \end{center}
+%  \caption{Condiciones de simulación.}
+%  \label{table: initial conditions}
+% \end{table}
+% 
+% \section{Resultados}
+% La simulación generó la trayectoria del péndulo para un intervalo de 10 segundos (figura \ref{fig: 3d plot}).
+% Se observa que la trayectoria descrita por el sistema no asemeja el movimiento de un péndulo esférico.
+% La trayectoria recorrida describe el movimiento cíclico de la masa. 
+% Simulaciones con tiempos incrementales no mostraron generar cambio alguno en la trayectoria.
+% La masa m está restringida a seguir siempre un ciclo de movimiento como se observa en la figura \ref{fig: time xyz}.\\
+% 
+% Observando los diagramas de fase de las coordenadas generalizadas (\ref{fig: phase theta phi}) proveen una indicación de qué movimiento está siendo generado.
+% La coordenada $\theta$ se limita a un intervalo de valores $\theta \in (0.3,\ 1.1)$ aproximadamente.
+% En contraste, la coordenada $\phi$ no está restringida de esa manera.
+% Esta segunda variable incrementa sin indicación alguna de detenerse (figura \ref{fig: time theta phi}).
+% 
+% El crecimiento desmesurado de $\phi$ se debe a que no hay cambio alguno en el momento generalizado $\dot p_\phi =0$.
+% Esto puede ser observado en la figura \ref{fig: phase phi p}.
+% Contrario a este comportamiento, el diagrama de fase de $\theta - p_\theta$ (figura \ref{fig: phase theta p}) muestra nuevamente la restricción de valores que $\theta$ esperimenta.
+% 
+% Observando las ecuaciones de movimiento propuestas, se identifican singularidades debido a la presencia de funciones trigonométricas en el denominador de varios términos.
+% 
+% \begin{figure}[htb!]
+%  \centering 
+%  \import{./img/}{3Dplot.tex}
+%  \caption{Trayectoria recorrida por el péndulo.}
+%  \label{fig: 3d plot}
+% \end{figure}
+% 
+% \begin{figure}[htb!]
+%  \centering 
+%  \import{./img/}{timeXYZ.tex}
+%   \caption{Comportamiento de $x, y, z$ respecto al tiempo.}
+%  \label{fig: time xyz}
+% \end{figure}
+% 
+% 
+% \begin{figure}[htb!]
+%  \centering 
+%  \import{./img/}{phasePhiPPhi.tex}
+%  \caption{Diagrama fase $\phi - p_\phi$.}
+%  \label{fig: phase phi p}
+% \end{figure}
+% 
+% 
+% 
+% \begin{figure}[htb!]
+%  \centering 
+%  \import{./img/}{phaseThetaPTheta.tex}
+%  \caption{Diagrama fase $\theta - p_\theta$.}
+%  \label{fig: phase theta p}
+% \end{figure}
+% 
+% \begin{figure}[htb!]
+%  \centering 
+%  \import{./img/}{timeTRhetaPhi.tex}
+%  \caption{Comportamiento de $\theta, \phi$ respecto al tiempo.}
+%  \label{fig: time theta phi}
+% \end{figure}
+% 
+% \begin{figure}[htb!]
+%  \centering 
+%  \import{./img/}{phaseThetaPhi.tex}
+%  \caption{Diagrama fase $\theta - p_\phi$.}
+%  \label{fig: phase theta phi}
+% \end{figure}
+% 
+% 
+
+\appendix
+\section{Código Octave}
+\lstinputlisting[language=Matlab]{exam.m}
+
+\end{document}
